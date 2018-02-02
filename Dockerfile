@@ -32,7 +32,10 @@ RUN apt-get update -y -qq && \
     unzip TimeTrex_Community_Edition-manual-installer.zip -d /var/www/html/ && \
     rm -f /tmp/TimeTrex_Community_Edition-manual-installer.zip && \
     mv /var/www/html/TimeTrex* /var/www/html/timetrex && \
-    chgrp www-data -R /var/www/html/timetrex/
+    chgrp www-data -R /var/www/html/timetrex/ && \
+    mkdir /database && \
+    chown -R postgres: /database
+
 
 COPY ["*.conf", "/etc/supervisor/conf.d/"]
 COPY ["*.sh", "/"]
