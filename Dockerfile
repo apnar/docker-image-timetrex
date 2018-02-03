@@ -33,13 +33,14 @@ RUN apt-get update -y -qq && \
     rm -f /tmp/TimeTrex_Community_Edition-manual-installer.zip && \
     mv /var/www/html/TimeTrex* /var/www/html/timetrex && \
     chgrp www-data -R /var/www/html/timetrex/ && \
+    chmod 775 /var/www/html/timetrex && \
     mkdir /database && \
     chown -R postgres: /database
 
 
 COPY ["*.conf", "/etc/supervisor/conf.d/"]
 COPY ["*.sh", "/"]
-COPY ["timetrex.ini.php.dist", "/var/www/html/timetrex"]
+COPY ["timetrex.ini.php.dist", "/"]
 EXPOSE 80
 
 ENTRYPOINT ["/docker-entrypoint.sh"]

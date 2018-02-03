@@ -16,7 +16,7 @@ fi
 
 if [[ ! -s /var/www/html/timetrex/timetrex.ini.php ]]
 then
-  cat /var/www/html/timetrex/timetrex.ini.php.dist > /var/www/html/timetrex/timetrex.ini.php
+  cat /timetrex.ini.php.dist > /var/www/html/timetrex/timetrex.ini.php
 fi
 chgrp www-data /var/www/html/timetrex/timetrex.ini.php
 chmod 664 /var/www/html/timetrex/timetrex.ini.php
