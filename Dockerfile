@@ -35,7 +35,8 @@ RUN apt-get update -y -qq && \
     chgrp www-data -R /var/www/html/timetrex/ && \
     chmod 775 /var/www/html/timetrex && \
     mkdir /database && \
-    chown -R postgres: /database
+    chown -R postgres: /database && \
+    sed -i "s#data_directory =.*#data_directory = '/database'#" /etc/postgresql/9.5/main/postgresql.conf
 
 
 COPY ["*.conf", "/etc/supervisor/conf.d/"]
