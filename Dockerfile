@@ -39,6 +39,7 @@ RUN apt-get update -y -qq && \
 
 COPY ["*.conf", "/etc/supervisor/conf.d/"]
 COPY ["*.sh", "/"]
+COPY ["timetrex.ini.php.dist", "/var/www/html/timetrex"]
 EXPOSE 80
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
