@@ -17,6 +17,7 @@ docker run -d \
            apnar/timetrex
 ```
 
+
 To use bind mounts and presistant data run more like this:
 ```
 mkdir -p /docker/timetrex/storage
