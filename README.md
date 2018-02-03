@@ -2,11 +2,14 @@
 
 This is a Docker image for running the TimeTrex open source
 time tracking and payroll system.  It contains apache, php,
-and postgres database.
+postgres database, and TimeTrex Community Edition.
 
-More details at http://timetrex.com
+More details at https://www.timetrex.com/community-edition
 
-Run Directly:
+This container has no affiliation with TimeTrex, just a happy
+user for my one employee a year.
+
+Run quickly:
 ```
 docker run -d \
            --name timetrex \
