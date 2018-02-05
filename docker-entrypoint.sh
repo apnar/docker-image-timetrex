@@ -6,6 +6,7 @@ chgrp -R www-data /storage
 chmod 775 -R /storage
 chgrp www-data /logs
 chmod 775 /logs
+chown -R postgres: /database
 
 if [ ! -f /database/PG_VERSION ]
 then
