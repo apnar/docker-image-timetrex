@@ -24,7 +24,9 @@ else
   DB_VER=`su - postgres -c "psql timetrex -q -t -c \"select value from system_setting where name='schema_version_group_A'\""`
   if [[ "$CUR_VER" != "$DB_VER" ]]
   then
-    sed -i 's/installer_enabled =.*/installer_enabled = TRUE/' /var/www/html/timetrex/timetrex.ini.php
+    # break this into two commands to work around bind limitations
+    sed 's/installer_enabled =.*/installer_enabled = TRUE/' /var/www/html/timetrex/timetrex.ini.php > /tmp/timetrex.ini.php
+    cat /tmp/timetrex.ini.php > /var/www/html/timetrex/timetrex.ini.php
     echo "New version detected!!!!"
     echo "Connect to http://[host]:[port]/timetrex/interface/install/install.php to finish upgrade."
   fi
