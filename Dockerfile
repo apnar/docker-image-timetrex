@@ -28,18 +28,19 @@ RUN apt-get update -y -qq && \
 
 # install timetrex
     cd /tmp  && \
-    wget http://www.timetrex.com/direct_download/TimeTrex_Community_Edition_v11.0.2.zip && \
-    unzip TimeTrex_Community_Edition_v11.0.2.zip -d /var/www/html/ && \
-    rm -f /tmp/TimeTrex_Community_Edition_v11.0.2.zip && \
-#    wget http://www.timetrex.com/download/TimeTrex_Community_Edition-manual-installer.zip && \
-#    unzip TimeTrex_Community_Edition-manual-installer.zip -d /var/www/html/ && \
-#    rm -f /tmp/TimeTrex_Community_Edition-manual-installer.zip && \
+#    wget http://www.timetrex.com/direct_download/TimeTrex_Community_Edition_v11.0.2.zip && \
+#    unzip TimeTrex_Community_Edition_v11.0.2.zip -d /var/www/html/ && \
+#    rm -f /tmp/TimeTrex_Community_Edition_v11.0.2.zip && \
+    wget http://www.timetrex.com/download/TimeTrex_Community_Edition-manual-installer.zip && \
+    unzip TimeTrex_Community_Edition-manual-installer.zip -d /var/www/html/ && \
+    rm -f /tmp/TimeTrex_Community_Edition-manual-installer.zip && \
     mv /var/www/html/TimeTrex* /var/www/html/timetrex && \
     chgrp www-data -R /var/www/html/timetrex/ && \
     chmod 775 /var/www/html/timetrex && \
     mkdir /database && \
     chown -R postgres: /database && \
-    sed -i "s#data_directory =.*#data_directory = '/database'#" /etc/postgresql/9.5/main/postgresql.conf
+    sed -i "s#data_directory =.*#data_directory = '/database'#" /etc/postgresql/9.5/main/postgresql.conf && \
+    chsh -s /bin/bash www-data
 
 
 COPY ["*.conf", "/etc/supervisor/conf.d/"]
