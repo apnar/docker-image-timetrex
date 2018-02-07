@@ -43,8 +43,9 @@ RUN apt-get update -y -qq && \
     chsh -s /bin/bash www-data
 
 
-COPY ["*.conf", "/etc/supervisor/conf.d/"]
+COPY ["supervisord.conf", "httpd.conf", "maint.conf", "postgres.conf", "/etc/supervisor/conf.d/"]
 COPY ["*.sh", "/"]
+COPY ["mpm_prefork.conf", "/etc/apache2/mods-available/mpm_prefork.conf"]
 COPY ["timetrex.ini.php.dist", "/"]
 EXPOSE 80
 
