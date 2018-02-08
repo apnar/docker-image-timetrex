@@ -6,7 +6,7 @@ postgres database, and TimeTrex Community Edition.
 
 More details at https://www.timetrex.com/community-edition
 
-This container has no affiliation with TimeTrex, just a happy
+This container has no affiliation with TimeTrex, I'm just a happy
 user for my one employee a year.
 
 Run quickly:
